@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #body {
+        background-color: rgb(230, 164, 84);
+      }
+      #h2 {
+        background-color: aquamarine;
+      }
+      #button {
+        background-color: blueviolet;
+      }
+    </style>
+  </head>
+  <body id="body">
+    <h2 id="h2">Guess the number</h2>
+    <input
+      type="number"
+      id="mainInput"
+      placeholder="Enter the guess number"
+    /><br />
+    <button onclick="guessGame()" id="button">Guess</button>
+    <br />
+    <p id="fedback"></p>
+    <br />
+    <p id="attempts"></p>
+
+    <script>
+      function guessGame() {
+        let guess = paraseInt(document.getElementById("maininput").value);
+        count++;
+        if (guess < target) {
+          document.getElementById("attempts").innerText = "too law";
+        } else if (guess > target) {
+          document.getElementById("fedback").innerText = "too high";
+        } else {
+          document.getElementById("fedback").innerText =
+            "guess number is correct!";
+          document.getElementById("attempts").innerText =
+            "you gusssed it in: " + count + " attempts";
+        }
+      }
+    </script>
+  </body>
+</html>
