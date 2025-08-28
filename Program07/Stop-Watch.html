@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Watch</title>
+    <style>
+        h1{
+            text-align: center;
+            color: rgb(0, 0, 0);
+        }
+        body{
+            text-align: center;
+        }
+        #display{
+            font-size: 50px;
+        }
+        button{
+            font-size: 20px;
+            margin: 5px;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .start{
+            background-color: rgb(170, 239, 132);
+            color: black;
+        }
+        .stop{
+            background-color: rgb(255, 255, 111);
+            color: black;
+        }
+        .reset{
+            background-color: rgb(255, 116, 116);
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Stop-Watch</h1>
+    <p id="display">00:00</p>
+    <button onclick="start()" class="start">Start</button>
+    <button onclick="stop()" class="stop">Stop</button>
+    <button onclick="reset()" class="reset">Reset</button>
+
+    <script>
+        let seconds = 0;
+        let intervalId = null;
+
+        function updateDisplay() {
+            const mins = String(Math.floor(seconds / 60)).padStart(2,'0');
+            const secs = String(seconds % 60).padStart(2,'0');
+            document.getElementById('display').textContent =`${mins}:${secs}`;
+        }
+        function start() {
+            if (!intervalId) {
+                intervalId = setInterval(()=>{
+                    seconds++;
+                    updateDisplay();
+                },1000);
+            }
+        }
+
+        function stop() {
+            if (intervalId) {
+                clearInterval(intervalId);
+                intervalId = null;
+            }
+        }
+
+        function reset() {
+            stop();
+            seconds = 0;
+            updateDisplay();
+        }
+    </script>
+</body>
+</html>
