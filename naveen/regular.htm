@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Quantifiers specify how many times a character or group should appear
+        let text = "assdf";
+        let patten =/\a?/g;
+        let result=text.match(patten);
+        console.log(result);
+
+
+        //modifiers
+        let text_1 = "Hai hello how are you?/nHai I'm Fine.Hai";
+        let patten_1 =/^hai/igm;
+        let result_1=text.match(patten);
+        console.log(result_1);
+
+        let number ="234567789"
+        let patten_2=/\d+/g
+        let result4=numer.match(patten_2)
+        console.log(result4) 
+
+</script>
+</body>
+</html>
